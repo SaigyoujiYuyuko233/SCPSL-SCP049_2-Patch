@@ -1,4 +1,5 @@
-﻿using Smod2;
+﻿using SCPSL_SCP049_2_Patch.Event;
+using Smod2;
 using Smod2.Attributes;
 using Smod2.Config;
 
@@ -30,10 +31,10 @@ namespace SCPSL_SCP049_2_Patch {
             
             // 配置
             this.AddConfig(new ConfigSetting("SCP049_2_patch_enable", true, true, "Enable/Disable SCP049-2 damage patch"));
-            this.AddConfig(new ConfigSetting("SCP049_2_damage", 30, true, "The damage value of SCP049-2"));
+            this.AddConfig(new ConfigSetting("SCP049_2_patch_damage", 30, true, "The damage value of SCP049-2"));
             
             // 监听器
-            
+            this.AddEventHandlers(new OnPlayerHurtEvent(this));
             
         }
         
